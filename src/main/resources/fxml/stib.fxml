@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.SearchableComboBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="619.0">
+         <content>
+            <VBox prefHeight="170.0" prefWidth="605.0">
+               <children>
+                  <ImageView fitHeight="435.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../data/metro.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <HBox prefHeight="338.0" prefWidth="609.0" spacing="20.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="253.0" prefWidth="200.0" spacing="7.0">
+               <children>
+                  <ImageView fitHeight="56.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../data/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Origine" />
+                  <SearchableComboBox fx:id="originLabel" />
+                  <Label text="Destination" />
+                  <SearchableComboBox fx:id="destinationLabel" />
+                  <Button mnemonicParsing="false" onMouseClicked="#searchButton" text="Search">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label text="Nom" />
+                  <TextField fx:id="nomLabel" />
+                  <HBox alignment="CENTER" prefHeight="29.0" prefWidth="180.0" spacing="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#favoriteButton" prefHeight="25.0" prefWidth="84.0" text="Add fav" />
+                        <Button mnemonicParsing="false" onMouseClicked="#removeButton" prefHeight="25.0" prefWidth="87.0" text="Remove fav" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onMouseClicked="#modifyButton" text="Modify fav" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="338.0" prefWidth="389.0" spacing="15.0">
+               <children>
+                  <TableView fx:id="table" prefHeight="233.0" prefWidth="356.0">
+                    <columns>
+                      <TableColumn fx:id="stationColumn" editable="false" prefWidth="187.5999755859375" text="Stations" />
+                      <TableColumn fx:id="lineColumn" editable="false" prefWidth="199.20010375976562" text="Lignes" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="favoriteTable" prefHeight="132.0" prefWidth="406.0">
+                    <columns>
+                      <TableColumn fx:id="nomColumn" prefWidth="117.59999084472656" text="Nom" />
+                      <TableColumn fx:id="stationOne" prefWidth="126.800048828125" text="Origine" />
+                        <TableColumn fx:id="stationTwo" prefWidth="143.2" text="Destination" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
